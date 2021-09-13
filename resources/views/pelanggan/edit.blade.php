@@ -39,15 +39,9 @@
 
             <div class="input-group mb-3">
                 <select name="jenis_kelamin" id="" class="form-control">
-                    <option value="{{ $pelanggans->jenis_kelamin }}">
-                        @if ($pelanggans->jenis_kelamin == "L")
-                        {{ __('Laki-Laki') }}
-                        @else
-                        {{ __('Perempuan') }}
-                        @endif
-                    </option>
-                    <option value="L">Laki- Laki</option>
-                    <option value="P">Perempuan</option>
+                    <option value="">
+                    <option value="Laki-Laki" {{($pelanggans->jenis_kelamin == "Laki-Laki")?'selected':''}}>Laki- Laki</option>
+                    <option value="Perempuan" {{($pelanggans->jenis_kelamin == "Perempuan")?'selected':''}}>Perempuan</option>
                 </select>
                 <div class="input-group-append">
                     <div class="input-group-text">

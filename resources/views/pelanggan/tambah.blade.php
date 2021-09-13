@@ -36,8 +36,8 @@
             </div>
 
             <div class="input-group mb-3">
-                <select name="jenis_kelamin" id="" class="form-control">
-                    <option value="">-- Pilih --<p/option>
+                <select name="jenis_kelamin" id="" class="form-control" required>
+                    <option value="">-- Pilih --</option>
                     <option value="Laki-Laki">Laki- Laki</option>
                     <option value="Perempuan">Perempuan</option>
                 </select>

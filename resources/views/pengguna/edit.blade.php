@@ -39,7 +39,6 @@
 
             <div class="input-group mb-3">
                 <select class="form-control" name="level" required>
-                    <option value="{{ $users->level }}">{{ $users->level }}</option>
                     <option value="admin">admin</option>
                     <option value="owner">owner</option>
                     <option value="kasir">kasir</option>

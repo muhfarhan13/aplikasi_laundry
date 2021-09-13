@@ -31,7 +31,7 @@
                     @endif</td>
                 <td style="width: 20%" class="text-center">
                     <div class="btn-group" level="group" aria-label="Basic example">
-                        <a href="/pengguna/{id}/edit" class="btn btn-info btn-sm">
+                        <a href="/pengguna/{{$user->id}}/edit" class="btn btn-info btn-sm">
                             <i class="far fa-edit"></i>
                         </a>
                         <form action="/pengguna/{{$user->id}}" method="post">

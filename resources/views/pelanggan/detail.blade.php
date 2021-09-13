@@ -9,11 +9,7 @@
         <hr>
         <h5>{{ __('jenis kelamin : ') }}
             <strong>
-                @if ($pelanggans->jenis_kelamin == "L")
-                {{ __('Laki-Laki') }}
-                @else
-                {{ __('Perempuan') }}
-                @endif
+               {{$pelanggans->jenis_kelamin}}
             </strong>
         </h5>
         <hr>

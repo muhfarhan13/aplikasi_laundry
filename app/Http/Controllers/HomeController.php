@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Paket;
+use App\Models\Outlet;
+use App\models\Pelanggan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +28,10 @@ class HomeController extends Controller
     public function index()
     
     {
-        return view('home');
+        $countOutlets = Outlet::all()->count();
+        $countPenggunas = User::all()->count();
+        $countPelanggans = Pelanggan::all()->count();
+        $countPakets = Paket::all()->count();
+        return view('dashboard', compact('countOutlets', 'countPenggunas', 'countPelanggans', 'countPakets'));
     }
 }

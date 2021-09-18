@@ -1,11 +1,23 @@
 @extends('template.master')
 
+@section('title')
+    
+Outlet
+
+@endsection
+
+@section('page')
+
+<div class="breadcrumb-item"><a href="/outlet">Outlet</a></div>
+
+@endsection
+
 @section('content')
 
-<div class="container">
-    <a href="{{ route('tambah_outlet') }}" class="btn btn-primary mb-2"><i class="fas fa-plus mr-2"></i>Tambah</a>
+<div class="card-header p-5 bg-white">
+    <a href="{{ route('tambah_outlet') }}" class="btn btn-primary mb-4"><i class="fas fa-plus mr-2"></i>Tambah</a>
 
-    <table id="example2" class="table table-bordered table-hover">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th style="width: 10px">No</th>
@@ -30,7 +42,7 @@
             </td>
             <td>{{ $outlet->telepon }}</td>
             <td>{{ $outlet->alamat }}</td>
-            <td style="width: 20%" class="text-center">
+            <td style="width: 20%">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="/outlet/{{$outlet->id}}/edit" class="btn btn-info btn-sm">
                         <i class="far fa-edit"></i>
@@ -56,8 +68,6 @@
             @endforelse
         </tbody>
     </table>
-    <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-outline-primary"><i
-            class="fas fa-arrow-left"></i></a>
 </div>
 
 @endsection

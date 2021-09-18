@@ -1,22 +1,29 @@
 @extends('template.master')
 
-@section('content')
-<div class="container">
-    <div class="text-capitalize">
-        <h5>{{ __('Nama Member : ') }}<strong>{{ $pelanggans->nama }}</strong></h5>
-        <hr>
-        <h5>{{ __('Alamat Member : ') }}<strong>{{ $pelanggans->alamat }}</strong></h5>
-        <hr>
-        <h5>{{ __('jenis kelamin : ') }}
-            <strong>
-               {{$pelanggans->jenis_kelamin}}
-            </strong>
-        </h5>
-        <hr>
-        <h5>{{ __('telepon Member : ') }}<strong>{{ $pelanggans->telepon }}</strong></h5>
+@section('title')
 
-        <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-outline-primary mt-5"><i
-                class="fas fa-arrow-left"></i></a>
-    </div>
+Pelanggan
+
+@endsection
+
+@section('page')
+
+<div class="breadcrumb-item"><a href="/pelanggan">Pelanggan</a></div>
+
+@endsection
+
+@section('content')
+<div class="card-header p-5 bg-white">
+    <h5>Nama member: {{ $pelanggans->nama }}</h5>
+    <hr>
+    <h5>Alamat member: {{ $pelanggans->alamat }}</h5>
+    <hr>
+    <h5>Jenis Kelamin:
+
+        {{$pelanggans->jenis_kelamin}}
+
+    </h5>
+    <hr>
+    <h5>Telepon member: {{ $pelanggans->telepon }}</h5>
 </div>
 @endsection

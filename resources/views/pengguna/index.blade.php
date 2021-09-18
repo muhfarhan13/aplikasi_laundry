@@ -1,15 +1,28 @@
 @extends('template.master')
 
+@section('title')
+    
+Pengguna
+
+@endsection
+
+@section('page')
+
+<div class="breadcrumb-item"><a href="/pengguna">Pengguna</a></div>
+
+@endsection
+
 @section('content')
 
 @if (auth()->user()->level == "admin")
-<div class="container">
+
+<div class="card-header bg-white p-5">
     <div class="btn-form mb-3">
         <a href="{{ route('tambah_pengguna') }}" class="btn btn-primary mb-2"><i class="fas fa-plus mr-2"></i>Tambah</a>
     </div>
 
-    <table id="example2" class="table table-hover">
-        <thead class="table-primary">
+    <table class="table table-hover">
+        <thead class="table-light">
             <tr>
                 <th style="width: 10px">No</th>
                 <th>Email</th>
@@ -29,7 +42,7 @@
                 <td>@if ($user->outlet)
                     {{ $user->outlet->nama }}
                     @endif</td>
-                <td style="width: 20%" class="text-center">
+                <td style="width: 20%">
                     <div class="btn-group" level="group" aria-label="Basic example">
                         <a href="/pengguna/{{$user->id}}/edit" class="btn btn-info btn-sm">
                             <i class="far fa-edit"></i>
@@ -52,12 +65,9 @@
             @endforelse
         </tbody>
     </table>
-
-    <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-outline-primary"><i
-            class="fas fa-arrow-left"></i></a>
-
-    {{-- {{ $users->links() }} --}}
 </div>
+
+{{-- {{ $users->links() }} --}}
 @elseif(auth()->user()->level == "kasir")
 {{-- petugas --}}
 @elseif(auth()->user()->level == "owner")

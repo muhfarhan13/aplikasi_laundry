@@ -23,12 +23,10 @@ use App\Http\Controllers\PaketController;
 
 Auth::routes();
 Route::get('/',function(){
-    return view('home');
+    return view('auth.login');
 });
 Route::group(['middleware' => ['auth', 'CekLevel:admin,kasir']], function () {
-    Route::get('/home', function(){
-        return redirect('/pelanggan');
-    })->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan');
     Route::get('/pelanggan/tambah', [PelangganController::class, 'create'])->name('tambah_pelanggan');

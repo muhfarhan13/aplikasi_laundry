@@ -92,7 +92,7 @@ class PenggunaController extends Controller
      * @param  \App\Models\Pengguna  $pengguna
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pengguna $pengguna)
+    public function update($id, Request $request)
     {
         if ($request['password'] != null) {
             $update = User::where('id', $id)->update([

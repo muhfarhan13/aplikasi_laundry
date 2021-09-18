@@ -1,12 +1,24 @@
 @extends('template.master')
 
+@section('title')
+
+Pelanggan
+
+@endsection
+
+@section('page')
+
+<div class="breadcrumb-item"><a href="/pelanggan">Pelanggan</a></div>
+
+@endsection
+
 @section('content')
 
 @if (auth()->user()->level == "admin")
-<div class="container">
-    <a href="{{ route('tambah_pelanggan') }}" class="btn btn-primary mb-2"><i class="fas fa-plus mr-2"></i>Tambah</a>
+<div class="card-header p-5 bg-white">
+    <a href="{{ route('tambah_pelanggan') }}" class="btn btn-primary mb-4"><i class="fas fa-plus mr-2"></i>Tambah</a>
 
-    <table id="example2" class="table table-bordered table-hover text-capitalize">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th style="width: 10px">No</th>
@@ -28,7 +40,7 @@
                 {{-- <td>@if ($pelanggan->outlet)
                     {{ $pelanggan->outlet->nama }}
                 @endif</td> --}}
-                <td style="width: 20%" class="text-center">
+                <td style="width: 20%">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="/pelanggan/{{$pelanggan->id}}/edit" class="btn btn-info btn-sm">
                             <i class="far fa-edit"></i>
@@ -49,19 +61,18 @@
             </tr>
             @empty
             <tr>
-                <td colspan="6" align="center">Data Tidak Ditemukan</td>
+                <td colspan="6" align="center">Data Tidak Ada</td>
             </tr>
             @endforelse
         </tbody>
     </table>
-    <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i></a>
 </div>
 
 @elseif(auth()->user()->level == "kasir")
-<div class="container">
-    <a href="{{ route('tambah_pelanggan') }}" class="btn btn-primary mb-2"><i class="fas fa-plus mr-2"></i>Tambah</a>
+<div class="card-header p-5 bg-white">
+    <a href="{{ route('tambah_pelanggan') }}" class="btn btn-primary mb-4"><i class="fas fa-plus mr-2"></i>Tambah</a>
 
-    <table id="example2" class="table table-bordered table-hover text-capitalize">
+    <table class="table table-bordered table-hover text-capitalize">
         <thead>
             <tr>
                 <th style="width: 10px">No</th>
@@ -83,7 +94,7 @@
                 {{-- <td>@if ($pelanggan->outlet)
                     {{ $pelanggan->outlet->nama }}
                 @endif</td> --}}
-                <td style="width: 20%" class="text-center">
+                <td style="width: 20%">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="/pelanggan/{{$pelanggan->id}}/edit" class="btn btn-info btn-sm">
                             <i class="far fa-edit"></i>
@@ -104,12 +115,11 @@
             </tr>
             @empty
             <tr>
-                <td colspan="6" align="center">Data Tidak Ditemukan</td>
+                <td colspan="6" align="center">Data Tidak Ada</td>
             </tr>
             @endforelse
         </tbody>
     </table>
-    <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i></a>
 </div>
 @endif
 

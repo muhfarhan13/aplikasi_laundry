@@ -1,8 +1,20 @@
 @extends('template.master')
 
+@section('title')
+
+Pelanggan
+
+@endsection
+
+@section('page')
+
+<div class="breadcrumb-item"><a href="/pelanggan">Pelanggan</a></div>
+
+@endsection
+
 @section('content')
 
-<div class="row">
+<div class="card-header p-5 bg-white">
     <div class="col-lg-7 m-auto">
         <form method="POST" action="{{ route('simpan_pelanggan') }}">
             @csrf
@@ -48,19 +60,10 @@
                 </div>
             </div>
 
-            <div class="row my-2">
-                <!-- /.col -->
-                <div class="col-4 m-auto">
-                    <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-outline-primary"><i
-                            class="fas fa-arrow-left"></i></a>
-                    <button type="reset" class="btn bg-gradient-danger">
-                        <i class="fas fa-redo"></i>
-                    </button>
-                    <button type="submit" class="btn bg-gradient-primary">
-                        {{ __('Tambah') }}
-                    </button>
-                </div>
-                <!-- /.col -->
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">
+                    Tambah
+                </button>
             </div>
         </form>
     </div>

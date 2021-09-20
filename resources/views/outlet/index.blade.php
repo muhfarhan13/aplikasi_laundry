@@ -17,7 +17,7 @@ Outlet
 <div class="card-header p-5 bg-white">
     <a href="{{ route('tambah_outlet') }}" class="btn btn-primary mb-4"><i class="fas fa-plus mr-2"></i>Tambah</a>
 
-    <table class="table table-hover">
+    <table class="table table-bordered table-responsive-lg table-hover">
         <thead>
             <tr>
                 <th style="width: 10px">No</th>
@@ -29,8 +29,8 @@ Outlet
             </tr>
         </thead>
         <tbody>
-            @forelse ($outlets as $no => $outlet)
-            <td>{{ ++$no }}</td>
+            @forelse ($outlets as $outlet)
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $outlet->nama }}</td>
             <td>
                 @if ($outlet->user)

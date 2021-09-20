@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Blank Page &mdash; Stisla</title>
+    <title>LaundryIN &#9773;</title>
+    
+    <!-- Icon Baju -->
+    {{-- &#128090; --}}
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -167,16 +170,16 @@
                                 <span>Paket</span></a></li>
                         @endif
                         @if (auth()->user()->level == "admin")
-                        <li class=""><a class="nav-link" href="blank.html"><i class="fas fa-shopping-cart"></i>
+                        <li class=""><a class="nav-link" href="{{ route('transaksi') }}"><i class="fas fa-shopping-cart"></i>
                                 <span>Transaksi</span></a></li>
                         @endif
 
-                        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+                        {{-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
                             <a href="https://getstisla.com/docs"
                                 class="btn btn-primary btn-lg btn-block btn-icon-split">
                                 <i class="fas fa-rocket"></i> Documentation
                             </a>
-                        </div>
+                        </div> --}}
                 </aside>
             </div>
 

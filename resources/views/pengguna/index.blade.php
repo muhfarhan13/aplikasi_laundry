@@ -21,7 +21,7 @@ Pengguna
         <a href="{{ route('tambah_pengguna') }}" class="btn btn-primary mb-2"><i class="fas fa-plus mr-2"></i>Tambah</a>
     </div>
 
-    <table class="table table-hover">
+    <table class="table table-bordered table-responsive-lg table-hover">
         <thead class="table-light">
             <tr>
                 <th style="width: 10px">No</th>
@@ -33,9 +33,9 @@ Pengguna
             </tr>
         </thead>
         <tbody class="table-light">
-            @forelse($users as $no => $user)
+            @forelse($users as $user)
             <tr>
-                <td>{{ ++$no }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->level }}</td>
@@ -67,11 +67,6 @@ Pengguna
     </table>
 </div>
 
-{{-- {{ $users->links() }} --}}
-@elseif(auth()->user()->level == "kasir")
-{{-- petugas --}}
-@elseif(auth()->user()->level == "owner")
-{{-- masyarakat --}}
 @endif
 
 @endsection

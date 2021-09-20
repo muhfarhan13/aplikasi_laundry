@@ -17,7 +17,7 @@ Paket
 <div class="card-header p-5 bg-white">
     <a href="{{ route('tambah_paket') }}" class="btn btn-primary mb-4"><i class="fas fa-plus mr-2"></i>Tambah</a>
 
-    <table class="table table-hover">
+    <table class="table table-bordered table-responsive-lg table-hover">
         <thead>
             <tr>
                 <th style="width: 10px">No</th>
@@ -29,9 +29,9 @@ Paket
             </tr>
         </thead>
         <tbody>
-            @forelse($pakets as $no => $paket)
+            @forelse($pakets as $paket)
             <tr>
-                <td>{{ ++$no }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $paket->nama_paket }}</td>
                 <td>{{ $paket->jenis }}</td>
                 <td>{{ 'Rp. '. number_format($paket->harga) }}</td>

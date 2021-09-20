@@ -6,6 +6,7 @@ use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PaketController;
 
 /*
@@ -61,4 +62,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
     Route::get('/paket/{id}/edit', [PaketController::class, 'edit'])->name('edit_paket');
     Route::put('/paket/{id}', [PaketController::class, 'update'])->name('');
     Route::delete('/paket/{id}', [PaketController::class, 'destroy'])->name('');
+
+    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+    // Route::get('/transaksi/tambah', [TransaksiController::class, 'create'])->name('transaksi_tambah');
+    // Route::get('/transaksi')
 });

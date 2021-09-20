@@ -18,7 +18,7 @@ Pelanggan
 <div class="card-header p-5 bg-white">
     <a href="{{ route('tambah_pelanggan') }}" class="btn btn-primary mb-4"><i class="fas fa-plus mr-2"></i>Tambah</a>
 
-    <table class="table table-hover">
+    <table class="table table-bordered table-responsive-lg table-hover">
         <thead>
             <tr>
                 <th style="width: 10px">No</th>
@@ -30,9 +30,9 @@ Pelanggan
             </tr>
         </thead>
         <tbody>
-            @forelse($pelanggans as $no => $pelanggan)
+            @forelse($pelanggans as $pelanggan)
             <tr>
-                <td>{{ ++$no }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $pelanggan->nama }}</td>
                 <td>{{ $pelanggan->alamat }}</td>
                 <td>{{ $pelanggan->jenis_kelamin }}</td>
@@ -72,7 +72,7 @@ Pelanggan
 <div class="card-header p-5 bg-white">
     <a href="{{ route('tambah_pelanggan') }}" class="btn btn-primary mb-4"><i class="fas fa-plus mr-2"></i>Tambah</a>
 
-    <table class="table table-bordered table-hover text-capitalize">
+    <table class="table table-bordered table-responsive-lg table-hover">
         <thead>
             <tr>
                 <th style="width: 10px">No</th>
@@ -84,9 +84,9 @@ Pelanggan
             </tr>
         </thead>
         <tbody>
-            @forelse($pelanggans as $no => $pelanggan)
+            @forelse($pelanggans as $pelanggan)
             <tr>
-                <td>{{ ++$no }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $pelanggan->nama }}</td>
                 <td>{{ $pelanggan->alamat }}</td>
                 <td>{{ $pelanggan->jenis_kelamin }}</td>

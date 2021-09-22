@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Paket;
 use App\Models\Outlet;
-use App\models\Pelanggan;
+use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

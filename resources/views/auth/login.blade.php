@@ -13,7 +13,7 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="{{ asset('node_modules/bootstrap-social/bootstrap-social.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('node_modules/bootstrap-social/bootstrap-social.css') }}"> --}}
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -26,9 +26,9 @@
             <div class="d-flex flex-wrap align-items-stretch">
                 <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
                     <div class="p-4 m-3">
-                        <section style="font-size:6em; font-color: black;">
+                        {{-- <section style="font-size:6em; font-color: black;">
                             &#9773;
-                        </section>
+                        </section> --}}
                         {{-- <img src="../assets/img/stisla-fill.svg" alt="logo" width="80"
                             class="shadow-light rounded-circle mb-5 mt-2"> --}}
                         <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold text-primary">Laundry</span>
@@ -75,10 +75,10 @@
                                     Login
                                 </button>
                             </div>
-
+{{-- 
                             <div class="mt-5 text-center">
                                 Don't have an account? <a href="{{ route('register') }}">Create new one</a>
-                            </div>
+                            </div> --}}
                         </form>
 
                         <div class="text-center mt-5 text-small">

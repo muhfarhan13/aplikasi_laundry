@@ -15,13 +15,15 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pelanggan_id')->references('id')->on('pelanggans')->onDelete('cascade');
+            $table->string('invoice_kode',50)->unique();
+            $table->foreignId('outlet_id')->references('id')->on('outlets')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('pelanggan_id')->references('id')->on('pelanggans')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('paket_id');
-            $table->foreign('paket_id')->references('id')->on('pakets')->onDelete('cascade');
-            $table->double('qty');
+            $table->foreign('paket_id')->references('id')->on('pakets')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('qty');
             $table->integer('total_harga');
-            $table->string('keterangan')->nullable();
-            $table->integer('total_bayar');
+            $table->string('keterangan')->default('belum_dibayar');
+            $table->string('status')->default('baru');
             $table->timestamps();
         });
     }

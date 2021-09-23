@@ -12,20 +12,9 @@ class Transaksi extends Model
     protected $table = "transaksis";
 
     protected $fillable = [
-        "outlet_id",
-        "kode_invoice",
-        "member_id",
-        "tgl",
-        "batas_waktu",
-        "tgl_pembayaran",
-        "biaya_tambahan",
-        "diskon",
-        "pajak",
-        "status",
-        "dibayar",
-        "user_id",
+        'invoice_kode', 'outlet_id', 'pelanggan_id', 'paket_id', 'qty', 'total_harga', 'keterangan', 'status'
     ];
-
+    // protected $with = ['outlet', 'pelanggan', 'paket'];
     public function detail_transaksi()
     {
         return $this->hasOne(Detail_transaksi::class);
@@ -33,16 +22,21 @@ class Transaksi extends Model
 
     public function outlet()
     {
-        return $this->belongsTo(Outlet::class);
+        return $this->belongsTo(Outlet::class, 'outlet_id');
     }
 
-    public function member()
+    public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class);
+        return $this->belongsTo(Pelanggan::class, 'pelanggan_id');
     }
 
-    public function user()
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
+
+    public function paket()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Paket::class, 'paket_id');
     }
 }

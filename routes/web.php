@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PaketController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,6 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
     Route::delete('/paket/{id}', [PaketController::class, 'destroy'])->name('');
 
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
-    // Route::get('/transaksi/tambah', [TransaksiController::class, 'create'])->name('transaksi_tambah');
-    // Route::get('/transaksi')
+    Route::get('/transaksi/tambah', [TransaksiController::class, 'create'])->name('transaksi_tambah');
+    Route::post('/transaksi/tambah/proses', [TransaksiController::class, 'store'])->name('transaksi_proses');
 });

@@ -11,10 +11,10 @@ Transaksi
 @endsection
 
 @section('content')
+<form action="" method="post">
 <div class="card-header p-5 bg-white">
-    <a href="" class="btn btn-primary mb-2"><i class="fas fa-plus mr-2"></i>Tambah</a>
-    <a href="" class="btn btn-success mb-2 ml-3"><i class="fas fa-check mr-2"></i>Konfirmasi Pembayaran</a>
-
+    <a href="{{ route('transaksi_tambah') }}" class="btn btn-primary mb-2"><i class="fas fa-plus mr-2"></i>Tambah</a>
+    <a href="" class="btn btn-success mb-2 ml-3"><i class="fas fa-check mr-2"></i>Konfirmasi Selesai Dan Bayar</a>
     <table class="table table-bordered table-responsive-lg table-hover text-center mt-3">
         <thead>
             <tr>
@@ -63,4 +63,5 @@ Transaksi
         </tbody>
     </table>
 </div>
+</form>
 @endsection

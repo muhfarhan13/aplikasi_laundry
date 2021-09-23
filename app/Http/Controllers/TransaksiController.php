@@ -8,6 +8,7 @@ use App\Models\Outlet;
 use App\Models\Paket;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -35,8 +36,7 @@ class TransaksiController extends Controller
     public function create()
     {
         //
-        return view('transaksi.create');
-
+        return view('transaksi.create',['paket'=>Paket::where('outlet_id','=',Auth::user()->outlet_id)->get(),'pelanggan'=>Pelanggan::all()]);
     }
 
     /**

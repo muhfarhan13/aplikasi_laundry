@@ -67,4 +67,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
     Route::get('/transaksi/tambah', [TransaksiController::class, 'create'])->name('transaksi_tambah');
     Route::post('/transaksi/tambah/proses', [TransaksiController::class, 'store'])->name('transaksi_proses');
+    Route::post('/konfirmasi_selesai', [TransaksiController::class, 'konfirmasi']);
+    Route::delete('/transaksi/{id}/delete', [TransaksiController::class, 'destroy'])->name('transaksi_hapus');
+    Route::get('/transaksi/{id}/edit', [TransaksiController::class, 'edit']);
+
 });

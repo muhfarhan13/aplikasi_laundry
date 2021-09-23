@@ -15,17 +15,17 @@ class Transaksi extends Model
         'invoice_kode', 'outlet_id', 'pelanggan_id', 'paket_id', 'qty', 'total_harga', 'keterangan', 'status'
     ];
     // protected $with = ['outlet', 'pelanggan', 'paket'];
-    public function detail_transaksi()
-    {
-        return $this->hasOne(Detail_transaksi::class);
-    }
+    // public function detail_transaksi()
+    // {
+    //     return $this->hasOne(Detail_transaksi::class);
+    // }
 
     public function outlet()
     {
         return $this->belongsTo(Outlet::class, 'outlet_id');
     }
 
-    public function pelanggan()
+    public function member()
     {
         return $this->belongsTo(Pelanggan::class, 'pelanggan_id');
     }

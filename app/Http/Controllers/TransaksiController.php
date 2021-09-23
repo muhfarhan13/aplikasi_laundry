@@ -36,7 +36,7 @@ class TransaksiController extends Controller
     public function create()
     {
         //
-        return view('transaksi.create',['paket'=>Paket::where('outlet_id','=',Auth::user()->outlet_id)->get(),'pelanggan'=>Pelanggan::all()]);
+        return view('transaksi.create', ['paket' => Paket::where('outlet_id', '=', Auth::user()->outlet_id)->get(), 'pelanggan' => Pelanggan::all()]);
     }
 
     /**
@@ -48,6 +48,23 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request->all());
+        $this->validate($request, ['*' => 'required'], ['required' => ':attribute Tidak Boleh Kosong!']);
+        $paket = Paket::where('id', $request->paket_id)->first();
+        $data = new Transaksi();
+        $data->invoice_kode = $request->invoice_kode;
+        $data->outlet_id = Auth::user()->outlet_id;
+        $data->pelanggan_id = $request->pelanggan_id;
+        $data->paket_id = $request->paket_id;
+        $data->qty = $request->qty;
+        $total = $request->qty * $paket->harga;
+        $ppn = $total * 10 / 100;
+        $total_harga = $total + $ppn;
+        $data->total_harga = $total_harga;
+        $data->keterangan = 'belum_dibayar';
+        $data->status = 'baru';
+        $data->save();
+        return redirect('/transaksi')->with('success','data berhasil di tambahkan!');
     }
 
     /**
@@ -67,9 +84,11 @@ class TransaksiController extends Controller
      * @param  \App\Models\Transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transaksi $transaksi)
+    public function edit($id)
     {
         //
+        $transaksi = Transaksi::findOrFail($id);
+        return view('transaksi.detail',compact('transaksi'));
     }
 
     /**
@@ -90,8 +109,37 @@ class TransaksiController extends Controller
      * @param  \App\Models\Transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transaksi $transaksi)
+    public function destroy($id)
     {
         //
+        $transaksi=Transaksi::find($id);
+        $transaksi->delete();
+        return redirect('/transaksi');
     }
+    public function konfirmasi(Request $request)
+    {
+        # code...
+        // dd($request->has('transaksi'));
+        if (!$request->has('transaksi')) {
+            # code...
+            return redirect()->back()->withErrors('Tidak Ada Yang Dapat Di Proses!');
+        }else{
+            // dd($request->transaksi);
+            for ($i=0; $i < count($request->transaksi); $i++) { 
+                # code...
+                $data = Transaksi::find($request->transaksi[$i]);
+                $data->keterangan = 'dibayar';
+                $data->save();
+            }
+            return redirect()->back()->withErrors('Proses Berhasil!');
+        }
+        // $this->validate($request,['*'=>'required'],['required'=>'Tidak Ada Yang Dapat Di Proses']);
+    }
+    // <form action="{{ route('transaksi_hapus',$transaksi->id) }}"> <a href="/transaksi/{{ $transaksi->id }}/edit" class="btn btn-success">
+    //                                         <i class="far fa-edit"></i>
+    //                                     </a>
+    //                                     @csrf
+    //                                     <button type="submit" class="btn btn-danger">Hapus
+    //                                     </button>
+    //                                 </form>
 }

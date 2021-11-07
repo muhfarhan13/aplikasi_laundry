@@ -145,32 +145,32 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item {{ request()->is('home') ? 'active' : ''}}">
                             <a href="/home" class="nav-link"><i class="fas fa-fire"></i> <span>Dashboard</span></a>
                         </li>
                         <li class="menu-header">Pages</li>
                         @if (auth()->user()->level == "admin")
-                        <li class=""><a class="nav-link" href="{{ route('pengguna') }}"><i class="fas fa-user-cog"></i>
+                        <li class="{{ request()->is('pengguna') ? 'active' : ''}}"><a class="nav-link" href="{{ route('pengguna') }}"><i class="fas fa-user-cog"></i>
                                 <span>Pengguna</span></a></li>
                         @endif
                         @if (auth()->user()->level == "admin")
-                        <li class=""><a class="nav-link" href="{{ route('outlet') }}"><i class="fas fa-store"></i>
+                        <li class="{{ request()->is('outlet') ? 'active' : ''}}"><a class="nav-link" href="{{ route('outlet') }}"><i class="fas fa-store"></i>
                                 <span>Outlet</span></a></li>
                         @endif
                         @if (auth()->user()->level == "admin")
-                        <li class=""><a class="nav-link" href="{{ route('pelanggan') }}"><i class="fas fa-users"></i>
+                        <li class="{{ request()->is('pelanggan') ? 'active' : ''}}"><a class="nav-link" href="{{ route('pelanggan') }}"><i class="fas fa-users"></i>
                                 <span>Pelanggan</span></a></li>
                         @endif
                         @if (auth()->user()->level == "kasir")
-                        <li class=""><a class="nav-link" href="{{ route('pelanggan') }}"><i class="fas fa-users"></i>
+                        <li class="{{ request()->is('pelanggan') ? 'active' : ''}}"><a class="nav-link" href="{{ route('pelanggan') }}"><i class="fas fa-users"></i>
                                 <span>Pelanggan</span></a></li>
                         @endif
                         @if (auth()->user()->level == "admin")
-                        <li class=""><a class="nav-link" href="{{ route('paket') }}"><i class="fas fa-archive"></i>
+                        <li class="{{ request()->is('paket') ? 'active' : ''}}"><a class="nav-link" href="{{ route('paket') }}"><i class="fas fa-archive"></i>
                                 <span>Paket</span></a></li>
                         @endif
                         @if (auth()->user()->level == "admin")
-                        <li class=""><a class="nav-link" href="{{ route('transaksi') }}"><i class="fas fa-shopping-cart"></i>
+                        <li class="{{ request()->is('transaksi') ? 'active' : ''}}"><a class="nav-link" href="{{ route('transaksi') }}"><i class="fas fa-shopping-cart"></i>
                                 <span>Transaksi</span></a></li>
                         @endif
 
